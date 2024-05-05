@@ -28,16 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             btnAuto = new Button();
             btnAvion = new Button();
             btnBarco = new Button();
+            Movimiento = new System.Windows.Forms.Timer(components);
+            btnMover = new Button();
             SuspendLayout();
             // 
             // btnAuto
             // 
-            btnAuto.Location = new Point(395, 431);
+            btnAuto.Location = new Point(12, 396);
             btnAuto.Name = "btnAuto";
-            btnAuto.Size = new Size(94, 29);
+            btnAuto.Size = new Size(58, 29);
             btnAuto.TabIndex = 0;
             btnAuto.Text = "Auto";
             btnAuto.UseVisualStyleBackColor = true;
@@ -45,9 +48,9 @@
             // 
             // btnAvion
             // 
-            btnAvion.Location = new Point(278, 431);
+            btnAvion.Location = new Point(12, 431);
             btnAvion.Name = "btnAvion";
-            btnAvion.Size = new Size(94, 29);
+            btnAvion.Size = new Size(58, 29);
             btnAvion.TabIndex = 1;
             btnAvion.Text = "Avion";
             btnAvion.UseVisualStyleBackColor = true;
@@ -55,19 +58,34 @@
             // 
             // btnBarco
             // 
-            btnBarco.Location = new Point(508, 431);
+            btnBarco.Location = new Point(12, 361);
             btnBarco.Name = "btnBarco";
-            btnBarco.Size = new Size(94, 29);
+            btnBarco.Size = new Size(58, 29);
             btnBarco.TabIndex = 2;
             btnBarco.Text = "Barco";
             btnBarco.UseVisualStyleBackColor = true;
             btnBarco.Click += button3_Click;
+            // 
+            // Movimiento
+            // 
+            Movimiento.Interval = 50;
+            // 
+            // btnMover
+            // 
+            btnMover.Location = new Point(804, 431);
+            btnMover.Name = "btnMover";
+            btnMover.Size = new Size(94, 29);
+            btnMover.TabIndex = 3;
+            btnMover.Text = "Mover";
+            btnMover.UseVisualStyleBackColor = true;
+            btnMover.Click += btnMover_Click;
             // 
             // frmVahiculos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(910, 472);
+            Controls.Add(btnMover);
             Controls.Add(btnBarco);
             Controls.Add(btnAvion);
             Controls.Add(btnAuto);
@@ -81,5 +99,7 @@
         private Button btnAuto;
         private Button btnAvion;
         private Button btnBarco;
+        private System.Windows.Forms.Timer Movimiento;
+        private Button btnMover;
     }
 }
