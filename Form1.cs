@@ -5,13 +5,11 @@ namespace pryLopezEtapa5
     public partial class frmVahiculos : Form
     {
         private List<clsVehiculo> vehiculos; // Lista para almacenar los vehículos
-
         private int imagenesMostradas = 0;
-
+        private int contadorColisiones = 0;
         public frmVahiculos()
         {
             vehiculos = new List<clsVehiculo>();
-
             InitializeComponent();
 
             // Inicializar y configurar el temporizador
@@ -45,6 +43,25 @@ namespace pryLopezEtapa5
                         // Cambiar la dirección de la imagen
                         moviendoDerecha = !moviendoDerecha;
                         pictureBox.Tag = new object[] { moviendoDerecha, velocidadMovimiento };
+                    }
+
+                    // Verificar colisiones con otros PictureBox
+                    foreach (Control otherControl in this.Controls)
+                    {
+                        if (otherControl != pictureBox && otherControl is PictureBox otherPictureBox)
+                        {
+                            if (pictureBox.Bounds.IntersectsWith(otherPictureBox.Bounds))
+                            {
+                                // Incrementar contador de colisiones
+                                contadorColisiones++;
+                                lblColisiones.Text = $"Colisiones: {contadorColisiones}";
+
+                                // Eliminar los PictureBox involucrados en la colisión
+                                this.Controls.Remove(pictureBox);
+                                this.Controls.Remove(otherPictureBox);
+                                break; // Salir del bucle interno para evitar eliminar varios PictureBox a la vez
+                            }
+                        }
                     }
                 }
             }

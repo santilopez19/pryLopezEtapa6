@@ -34,6 +34,7 @@
             btnBarco = new Button();
             Movimiento = new System.Windows.Forms.Timer(components);
             btnMover = new Button();
+            lblColisiones = new Label();
             SuspendLayout();
             // 
             // btnAuto
@@ -80,11 +81,21 @@
             btnMover.UseVisualStyleBackColor = true;
             btnMover.Click += btnMover_Click;
             // 
+            // lblColisiones
+            // 
+            lblColisiones.AutoSize = true;
+            lblColisiones.Location = new Point(804, 405);
+            lblColisiones.Name = "lblColisiones";
+            lblColisiones.Size = new Size(76, 20);
+            lblColisiones.TabIndex = 4;
+            lblColisiones.Text = "Colisiones";
+            // 
             // frmVahiculos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(910, 472);
+            Controls.Add(lblColisiones);
             Controls.Add(btnMover);
             Controls.Add(btnBarco);
             Controls.Add(btnAvion);
@@ -92,6 +103,7 @@
             Name = "frmVahiculos";
             Text = "Vehiculos";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -101,5 +113,6 @@
         private Button btnBarco;
         private System.Windows.Forms.Timer Movimiento;
         private Button btnMover;
+        private Label lblColisiones;
     }
 }
